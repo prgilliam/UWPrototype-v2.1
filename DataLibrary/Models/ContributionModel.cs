@@ -23,6 +23,6 @@ namespace DataLibrary.Models
         public double ContributionAmount { get; set; }
         public int UWYear { get; set; }
         public DateTime UWDateCreated { get; set; } = DateTime.Now;
-        public DateTime UWDateLastEdited { get; set; }
+        public DateTime UWDateLastEdited { get; set; } = DateTime.Now;
     }
 }

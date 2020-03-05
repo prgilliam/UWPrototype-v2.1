@@ -11,7 +11,6 @@ namespace UnitedWayPrototypeApplication.Models
     {
         [DataType(DataType.Text)]
         [Display(Name = "Contribution ID")]
-        [MinLength(0, ErrorMessage = "Contribution ID must be a valid ID")]
         public int ContributionID { get; set; }
 
         [DataType(DataType.Text)]
@@ -22,19 +21,17 @@ namespace UnitedWayPrototypeApplication.Models
 
         [DataType(DataType.Text)]
         [Display(Name = "Employee First Name")]
-        [MinLength(0)]
         [Required(ErrorMessage = "You must enter an employee first name.")]
         public string CFirstName { get; set; }
 
         [DataType(DataType.Text)]
         [Display(Name = "Employee Last Name")]
-        [MinLength(0)]
         [Required(ErrorMessage = "You must enter an employee last name.")]
         public string CLastName { get; set; }
 
         [DataType(DataType.Text)]
         [Display(Name = "Agency ID (optional)")]
-        [MinLength(0, ErrorMessage = "Agency ID must be valid.")]
+        [Required(ErrorMessage = "Agency ID must be valid.")]
         public int AgencyID { get; set; }
 
         [Display(Name = "Type of Contribution")]
@@ -43,7 +40,6 @@ namespace UnitedWayPrototypeApplication.Models
 
         [DataType(DataType.Currency)]
         [Display(Name = "Monthly Amount")]
-        [MinLength(0, ErrorMessage = "Monthly Amount must be a valid number.")]
         [Required(ErrorMessage ="You must enter the monthly amount.")]
         public double UWMonthly { get; set; }
 
@@ -58,7 +54,6 @@ namespace UnitedWayPrototypeApplication.Models
 
         [DataType(DataType.Currency)]
         [Display(Name = "Total Contribution Amount")]
-        [MinLength(0, ErrorMessage = "Total Amount must be a valid number.")]
         public double ContributionAmount { get; set; }
 
         [Display(Name = "Current Year")]
@@ -72,6 +67,6 @@ namespace UnitedWayPrototypeApplication.Models
         // Commented out in HTML
         [DataType(DataType.Date)]
         [Display(Name = "Date of Edit")]
-        public System.DateTime UWDateLastEdited { get; set; }
+        public System.DateTime UWDateLastEdited { get; set; } = DateTime.Now;
     }
 }

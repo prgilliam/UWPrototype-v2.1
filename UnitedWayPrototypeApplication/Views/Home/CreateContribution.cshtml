@@ -58,16 +58,16 @@
     <div class="form-group">
         @Html.LabelFor(model => model.UWType, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.RadioButtonFor(model => model.UWType, "Monthly")
+            @Html.RadioButtonFor(model => model.UWType, "m")
             Monthly
             &nbsp;
-            @Html.RadioButtonFor(model => model.UWType, "Direct Bill")
+            @Html.RadioButtonFor(model => model.UWType, "d")
             Direct Bill
             &nbsp;
-            @Html.RadioButtonFor(model => model.UWType, "Cash/Check")
+            @Html.RadioButtonFor(model => model.UWType, "c")
             Cash/Check
             &nbsp;
-            @Html.RadioButtonFor(model => model.UWType, "Non-donor")
+            @Html.RadioButtonFor(model => model.UWType, "n")
             Non-Donor
         </div>
     </div>
