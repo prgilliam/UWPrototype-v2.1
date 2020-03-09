@@ -19,12 +19,12 @@ namespace DataLibrary.BusinessLogic
                 UWType = UWType,
                 UWMonthly = UWMonthly,
                 UWMonths = UWMonths,
-                ContributionAmount = ContributionAmount,
+                uwcontributionamount = ContributionAmount,
                 UWYear = UWYear,
                 CWID = CWID,
                 AgencyID = AgencyID,
-                CFirstName = CFirstName,
-                CLastName = CLastName,
+                contributionfname = CFirstName,
+                contributionlname = CLastName,
                 CheckNumber = CheckNumber,
                 UWDateCreated = UWDateCreated,
                 UWDateLastEdited = UWDateLastEdited
@@ -32,7 +32,7 @@ namespace DataLibrary.BusinessLogic
 
             //sql for sending data to the database from the values above
             string sql = @"INSERT INTO Contribution (contributionid, uwtype, uwmonths, uwyear, cwid, agencyid, contributionfname, contributionlname, checknumber, uwdatecreated, uwdateedited, uwmonthly, uwcontributionamount)
-                        VALUES (@ContributionID, @UWType, @UWMonths, @UWYear, @CWID, @AgencyID, @CFirstName, @CLastName, @CheckNumber, @UWDateCreated, @UWDateLastEdited, @UWMonths, @ContributionAmount);";
+                        VALUES (@ContributionID, @UWType, @UWMonths, @UWYear, @CWID, @AgencyID, @contributionfname, @contributionlname, @CheckNumber, @UWDateCreated, @UWDateLastEdited, @UWMonths, @uwcontributionamount);";
 
             return SQLDataAccess.SaveData(sql, data);
         }

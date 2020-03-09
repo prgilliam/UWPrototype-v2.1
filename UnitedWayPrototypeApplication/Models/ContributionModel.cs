@@ -22,12 +22,12 @@ namespace UnitedWayPrototypeApplication.Models
         [DataType(DataType.Text)]
         [Display(Name = "Employee First Name")]
         [Required(ErrorMessage = "You must enter an employee first name.")]
-        public string CFirstName { get; set; }
+        public string contributionfname { get; set; }
 
         [DataType(DataType.Text)]
         [Display(Name = "Employee Last Name")]
         [Required(ErrorMessage = "You must enter an employee last name.")]
-        public string CLastName { get; set; }
+        public string contributionlname { get; set; }
 
         [DataType(DataType.Text)]
         [Display(Name = "Agency ID (optional)")]
@@ -54,7 +54,7 @@ namespace UnitedWayPrototypeApplication.Models
 
         [DataType(DataType.Currency)]
         [Display(Name = "Total Contribution Amount")]
-        public double ContributionAmount { get; set; }
+        public double uwcontributionamount { get; set; }
 
         [Display(Name = "Current Year")]
         public int UWYear { get; set; }

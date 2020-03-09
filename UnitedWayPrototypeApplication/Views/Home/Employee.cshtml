@@ -68,68 +68,71 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.CWID)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.EmployeeFirstName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.EmployeeLastName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.EmployeeMI)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.StreetAddress)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.EmployeeCity)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.EmployeeState)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.EmployeeZip)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Payroll)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Salary)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.POBox)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.POBoxCity)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.POBoxState)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.OrgCode)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.EmployeeDepartment)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.GivingYear)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.EmployeeStatus)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.EmployeeDateCreated)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CWID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmployeeFirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmployeeLastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmployeeMI)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StreetAddress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmployeeCity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmployeeState)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmployeeZip)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Payroll)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Salary)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.POBox)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.POBoxCity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.POBoxState)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OrgCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmployeeDepartment)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GivingYear)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmployeeStatus)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmployeeDateCreated)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+    }
+
+    
 
 </table>

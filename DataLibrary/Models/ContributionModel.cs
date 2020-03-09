@@ -13,14 +13,14 @@ namespace DataLibrary.Models
     {
         public int ContributionID { get; set; }
         public int CWID { get; set; }
-        public string CFirstName { get; set; }
-        public string CLastName { get; set; }
+        public string contributionfname { get; set; }
+        public string contributionlname { get; set; }
         public int AgencyID { get; set; }
         public string UWType { get; set; }
         public double UWMonthly { get; set; }
         public int UWMonths { get; set; }
         public int CheckNumber { get; set; }
-        public double ContributionAmount { get; set; }
+        public double uwcontributionamount { get; set; }
         public int UWYear { get; set; }
         public DateTime UWDateCreated { get; set; } = DateTime.Now;
         public DateTime UWDateLastEdited { get; set; } = DateTime.Now;
