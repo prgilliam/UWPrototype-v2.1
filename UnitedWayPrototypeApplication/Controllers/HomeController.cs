@@ -89,6 +89,7 @@ namespace UnitedWayPrototypeApplication.Controllers
 
             ViewBag.Message = "Create new Employee";
 
+            ModelState.Clear();
             return View();
         }
 
@@ -134,7 +135,7 @@ namespace UnitedWayPrototypeApplication.Controllers
                 DataLibrary.BusinessLogic.AgencyProcessor.CreateAgency(model.AgencyID, model.AgencyName, model.AgencyStatus, model.AgencyDateCreated, model.AgencyDateLastEdited);
             }
 
-
+            ModelState.Clear();
             return View();
         }
 
@@ -189,6 +190,7 @@ namespace UnitedWayPrototypeApplication.Controllers
                     model.CWID, model.AgencyID, model.contributionfname, model.contributionlname, model.CheckNumber, model.UWDateCreated, model.UWDateLastEdited);
             }
 
+            ModelState.Clear();
             return View();
         }
 
@@ -242,6 +244,7 @@ namespace UnitedWayPrototypeApplication.Controllers
                     model.DepartmentStatus, model.DepartmentDateCreated, model.DepartmentLastEdited);
             }
 
+            ModelState.Clear();
             return View();
         }
 
