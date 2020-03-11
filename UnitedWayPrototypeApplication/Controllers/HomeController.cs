@@ -141,6 +141,31 @@ namespace UnitedWayPrototypeApplication.Controllers
             return View();
         }
 
+
+        public ActionResult EditAgency()
+        {
+            ViewBag.Message = "Edit Agency";
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult EditAgency(AgencyModel model)
+
+        {
+            if (ModelState.IsValid)
+
+            {
+                model.AgencyDateLastEdited = DateTime.Now;
+                DataLibrary.BusinessLogic.AgencyProcessor.EditAgency(model.AgencyID, model.AgencyName, model.AgencyStatus, model.AgencyDateCreated, model.AgencyDateLastEdited);
+                return RedirectToAction("Agency");
+            }
+            return View();
+        }
+
+
+
+
         public ActionResult Contribution()
         {
             ViewBag.Message = "Contribution Overview";
