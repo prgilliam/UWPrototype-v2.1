@@ -31,7 +31,7 @@ textarea {
     max-width: 280px;
 }
 .navbar-inverse {
-    background-color: #9E1B32 !important;
+    background-color: #900f0f !important;
     border-color: white !important;
 
 
@@ -41,8 +41,8 @@ textarea {
 }
 .navbar-inverse .navbar-nav > li > a {
     color: #FFFFFF !important;
-    font-size:2em;
-    border-right-style:groove;
+    font-size:20px;
+    font-family:sans-serif serif;
 
 
    
@@ -70,14 +70,20 @@ textarea {
  
    
    }
-.navbar-nav {
-    font-size:18px;
-}
+
 .navbar-brand{
-    font-size:30px;
+    font-size:40px;
     text-shadow: 2px 2px black ;
+    float:left;
+    padding:15px 15px;
+    line-height:normal;
+    font-family:'Open Sans';
+
     
     
+}
+.jumbotron{
+    background-color:#f8f8f8;
 }
 
 

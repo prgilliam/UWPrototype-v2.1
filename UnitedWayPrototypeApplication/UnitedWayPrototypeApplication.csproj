@@ -50,8 +50,10 @@
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
+    <Reference Include="System.Configuration.Install" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Management" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -156,6 +158,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Style\StyleSheet.css" />
+    <Content Include="ua-square-logo.png" />
     <Content Include="United way.png" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -181,6 +184,7 @@
     <Content Include="Views\Home\Agency.cshtml" />
     <Content Include="Views\Home\EditAgency.cshtml" />
     <Content Include="Views\Home\EditDepartment.cshtml" />
+    <Content Include="Views\Home\SideMenu.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
