@@ -211,7 +211,7 @@ namespace UnitedWayPrototypeApplication.Controllers
 
             if (ModelState.IsValid)
             {
-                DataLibrary.BusinessLogic.ContributionProcessor.CreateContribution(model.UWType, model.UWMonthly, model.UWMonths, model.uwcontributionamount, model.UWYear, 
+                DataLibrary.BusinessLogic.ContributionProcessor.CreateContribution(model.UWType, model.UWMonthly, model.UWMonths, model.UWYear, 
                     model.CWID, model.AgencyID, model.CheckNumber, model.UWDateCreated, model.UWDateLastEdited);
                 return RedirectToAction("Contribution");
             }

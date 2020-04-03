@@ -1,5 +1,5 @@
 ﻿CREATE TABLE [dbo].[Agency] (
-    [agencyid]             VARCHAR (10)  NOT NULL,
+    [agencyid]             INT           NOT NULL,
     [agencyname]           VARCHAR (100) NOT NULL,
     [agencystatus]         BIT           NOT NULL,
     [agencydatecreated]    DATETIME      NOT NULL,

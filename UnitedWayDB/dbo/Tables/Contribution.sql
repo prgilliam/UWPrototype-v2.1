@@ -7,7 +7,7 @@
     [uwdate]               DATE         NULL,
     [uwyear]               VARCHAR (4)  NULL,
     [cwid]                 VARCHAR (16) NULL,
-    [agencyid]             VARCHAR (10) NULL,
+    [agencyid]             INT          NULL,
     PRIMARY KEY CLUSTERED ([contributionid] ASC),
     FOREIGN KEY ([agencyid]) REFERENCES [dbo].[Agency] ([agencyid]),
     FOREIGN KEY ([cwid]) REFERENCES [dbo].[Employee] ([cwid])

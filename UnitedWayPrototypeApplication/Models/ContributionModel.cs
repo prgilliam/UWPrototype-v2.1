@@ -14,10 +14,11 @@ namespace UnitedWayPrototypeApplication.Models
         [Display(Name = "Contribution ID")]
         public int ContributionID { get; set; }
 
-        [DataType(DataType.Text)]
+   //     [DataType(DataType.Text)]
         [Display(Name = "CWID")]
-        [Range(00000001, 99999999, ErrorMessage = "CWID must be valid.")]
+        [Range(10000000, 99999999, ErrorMessage = "You need to enter a valid CWID")]
         [Required(ErrorMessage = "You must enter an employee CWID.")]
+        [ForeignKey("CWID")]
         public int CWID { get; set; }
         /*
         [DataType(DataType.Text)]
@@ -30,9 +31,10 @@ namespace UnitedWayPrototypeApplication.Models
         [Required(ErrorMessage = "You must enter an employee last name.")]
         public string contributionlname { get; set; }
         */
-        [DataType(DataType.Text)]
+     //   [DataType(DataType.Text)]
         [Display(Name = "Agency ID (optional)")]
-        [Required(ErrorMessage = "Agency ID must be valid.")]
+        [Required(ErrorMessage = "You must enter an Agency ID (Enter '0' if there is no agency).")]
+        [Range(0,10000000, ErrorMessage = "Agency ID must be valid (Enter '0' if there is no agency).")]
         public int AgencyID { get; set; }
 
         [Display(Name = "Type of Contribution")]
@@ -40,7 +42,7 @@ namespace UnitedWayPrototypeApplication.Models
         public string UWType { get; set; }
 
         [Display(Name = "Check Number")]
-        public int CheckNumber { get; set; }
+        public string CheckNumber { get; set; }
 
         [DataType(DataType.Currency)]
         [Display(Name = "Monthly Amount")]

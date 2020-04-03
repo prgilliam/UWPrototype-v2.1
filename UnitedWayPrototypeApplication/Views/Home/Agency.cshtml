@@ -30,6 +30,8 @@
     </tr>
 
 @foreach (var item in Model) {
+    if (item.AgencyID > 0)
+    {
     <tr>
         <td>
             @Html.DisplayFor(modelItem => item.AgencyID)
@@ -52,6 +54,7 @@
             @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
         </td>
     </tr>
+    }
 }
 
 </table>

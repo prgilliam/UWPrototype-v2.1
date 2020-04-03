@@ -10,6 +10,7 @@ namespace UnitedWayPrototypeApplication.Models
     {
         [Display(Name = "Agency ID")]
         [Required(ErrorMessage = "You must enter an Agency ID")]
+        [Range(0, 10000000, ErrorMessage = "You must enter a valid Agency ID")]
         public int AgencyID { get; set; }
 
         [Display(Name = "Agency Name")]
