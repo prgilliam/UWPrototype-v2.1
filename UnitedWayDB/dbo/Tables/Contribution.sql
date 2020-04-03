@@ -1,5 +1,5 @@
 ﻿CREATE TABLE [dbo].[Contribution] (
-    [contributionid]       VARCHAR (50) NOT NULL,
+    [contributionid]       INT IDENTITY(1,1)         NOT NULL,
     [uwtype]               CHAR (1)     NULL,
     [uwmonthly]            INT          NULL,
     [uwmonths]             INT          NULL,

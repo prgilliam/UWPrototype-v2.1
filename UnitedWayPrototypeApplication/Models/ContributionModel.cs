@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -9,7 +10,7 @@ namespace UnitedWayPrototypeApplication.Models
 {
     public class ContributionModel
     {
-        [DataType(DataType.Text)]
+        [Key] [DatabaseGenerated(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity)]
         [Display(Name = "Contribution ID")]
         public int ContributionID { get; set; }
 
@@ -18,7 +19,7 @@ namespace UnitedWayPrototypeApplication.Models
         [Range(00000001, 99999999, ErrorMessage = "CWID must be valid.")]
         [Required(ErrorMessage = "You must enter an employee CWID.")]
         public int CWID { get; set; }
-
+        /*
         [DataType(DataType.Text)]
         [Display(Name = "Employee First Name")]
         [Required(ErrorMessage = "You must enter an employee first name.")]
@@ -28,7 +29,7 @@ namespace UnitedWayPrototypeApplication.Models
         [Display(Name = "Employee Last Name")]
         [Required(ErrorMessage = "You must enter an employee last name.")]
         public string contributionlname { get; set; }
-
+        */
         [DataType(DataType.Text)]
         [Display(Name = "Agency ID (optional)")]
         [Required(ErrorMessage = "Agency ID must be valid.")]
@@ -37,6 +38,9 @@ namespace UnitedWayPrototypeApplication.Models
         [Display(Name = "Type of Contribution")]
         [Required(ErrorMessage = "You must select a contribution type.")]
         public string UWType { get; set; }
+
+        [Display(Name = "Check Number")]
+        public int CheckNumber { get; set; }
 
         [DataType(DataType.Currency)]
         [Display(Name = "Monthly Amount")]
@@ -48,9 +52,6 @@ namespace UnitedWayPrototypeApplication.Models
         [Range(0, 12, ErrorMessage = "Number of Months must be a valid number.")]
         [Required(ErrorMessage = "You must enter the number of months.")]
         public int UWMonths { get; set; }
-
-        [Display(Name = "Check Number")]
-        public int CheckNumber { get; set; }
 
         [DataType(DataType.Currency)]
         [Display(Name = "Total Contribution Amount")]

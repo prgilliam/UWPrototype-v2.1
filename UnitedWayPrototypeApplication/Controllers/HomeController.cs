@@ -187,8 +187,6 @@ namespace UnitedWayPrototypeApplication.Controllers
                     UWYear = row.UWYear,
                     CWID = row.CWID,
                     AgencyID = row.AgencyID,
-                    contributionfname = row.contributionfname,
-                    contributionlname = row.contributionlname,
                     CheckNumber = row.CheckNumber,
                     UWDateCreated = row.UWDateCreated,
                     UWDateLastEdited = row.UWDateLastEdited
@@ -213,8 +211,8 @@ namespace UnitedWayPrototypeApplication.Controllers
 
             if (ModelState.IsValid)
             {
-                DataLibrary.BusinessLogic.ContributionProcessor.CreateContribution(model.ContributionID, model.UWType, model.UWMonthly, model.UWMonths, model.uwcontributionamount, model.UWYear, 
-                    model.CWID, model.AgencyID, model.contributionfname, model.contributionlname, model.CheckNumber, model.UWDateCreated, model.UWDateLastEdited);
+                DataLibrary.BusinessLogic.ContributionProcessor.CreateContribution(model.UWType, model.UWMonthly, model.UWMonths, model.uwcontributionamount, model.UWYear, 
+                    model.CWID, model.AgencyID, model.CheckNumber, model.UWDateCreated, model.UWDateLastEdited);
                 return RedirectToAction("Contribution");
             }
 
