@@ -19,7 +19,7 @@ namespace DataLibrary.Models
         public string StreetAddress { get; set; }
         public string EmployeeCity { get; set; }
         public string EmployeeState { get; set; }
-        public int EmployeeZip { get; set; }
+        public string EmployeeZip { get; set; }
         public string Payroll { get; set; }
         public int Salary { get; set; }
         public int POBox { get; set; }
@@ -27,7 +27,7 @@ namespace DataLibrary.Models
         public string POBoxState { get; set; }
         public int OrgCode { get; set; }
         public string EmployeeDepartment { get; set; }
-        public int GivingYear { get; set; }
+        //public int GivingYear { get; set; }
         public bool EmployeeStatus { get; set; } = true;
         public DateTime EmployeeDateCreated { get; set; } = DateTime.Now;
     }

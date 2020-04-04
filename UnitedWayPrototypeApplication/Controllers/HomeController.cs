@@ -56,7 +56,7 @@ namespace UnitedWayPrototypeApplication.Controllers
                     OrgCode = row.OrgCode,
                     EmployeeStatus = row.EmployeeStatus,
                     EmployeeDateCreated = row.EmployeeDateCreated,
-                    GivingYear = row.GivingYear,
+                    //GivingYear = row.GivingYear,
                     Payroll = row.Payroll,
                     Salary = row.Salary,
                     POBox = row.POBox,
@@ -84,7 +84,7 @@ namespace UnitedWayPrototypeApplication.Controllers
             if (ModelState.IsValid)
             {
                 DataLibrary.BusinessLogic.EmployeeProcessor.CreateEmployee(model.CWID, model.EmployeeFirstName, model.EmployeeLastName, model.EmployeeMI, model.StreetAddress, model.EmployeeCity, model.EmployeeState, model.EmployeeZip,
-                    model.Payroll, model.Salary, model.POBox, model.POBoxCity, model.POBoxState, model.OrgCode, model.EmployeeDepartment, model.GivingYear, model.EmployeeStatus, model.EmployeeDateCreated);
+                    model.Payroll, model.Salary, model.POBox, model.POBoxCity, model.POBoxState, model.OrgCode, model.EmployeeDepartment, /*model.GivingYear,*/ model.EmployeeStatus, model.EmployeeDateCreated);
                 return RedirectToAction("Employee");
             }
 

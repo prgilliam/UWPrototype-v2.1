@@ -41,7 +41,7 @@ namespace UnitedWayPrototypeApplication.Models
         [Required(ErrorMessage = "You must select a contribution type.")]
         public string UWType { get; set; }
 
-        [Display(Name = "Check Number")]
+        [Display(Name = "Check Number (optional)")]
         public string CheckNumber { get; set; }
 
         [DataType(DataType.Currency)]

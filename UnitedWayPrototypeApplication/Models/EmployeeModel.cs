@@ -39,7 +39,7 @@ namespace UnitedWayPrototypeApplication.Models
         [Display(Name = "Zip Code")]
         [DataType(DataType.PostalCode)]
         [Required(ErrorMessage = "You must enter a zip code")]
-        public int EmployeeZip { get; set; }
+        public string EmployeeZip { get; set; }
 
         [Display(Name = "Payroll Type")]
         [Required(ErrorMessage = "You must enter an employee payroll type")]
@@ -64,9 +64,9 @@ namespace UnitedWayPrototypeApplication.Models
         [Display(Name = "Department")]
         public string EmployeeDepartment { get; set; }
 
-        [Display(Name = "Giving Year")]
-        [Required(ErrorMessage = "You must enter the giving year")]
-        public int GivingYear { get; set; } 
+        //[Display(Name = "Giving Year")]
+        //[Required(ErrorMessage = "You must enter the giving year")]
+        //public int GivingYear { get; set; } 
 
         [Display(Name = "Employee Status")]
         public bool EmployeeStatus { get; set; } = true;

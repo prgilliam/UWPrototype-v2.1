@@ -11,9 +11,9 @@ namespace DataLibrary.BusinessLogic
     public class EmployeeProcessor
     {
         public static int CreateEmployee(int empCWID, string firstName, string lastName, string empMI, 
-            string streetAddress, string empCity, string empState, int empZip, string payroll, int salary, 
+            string streetAddress, string empCity, string empState, string empZip, string payroll, int salary, 
             int empPoBox, string empPoBoxCity, string empPoBoxState, int empOrgCode, string empDepartment, 
-            int givingYear, bool empStatus, DateTime empDateCreated)
+            bool empStatus, DateTime empDateCreated)
         {
             EmployeeModel data = new EmployeeModel
             {
@@ -32,13 +32,13 @@ namespace DataLibrary.BusinessLogic
                 POBoxState = empPoBoxState,
                 OrgCode = empOrgCode,
                 EmployeeDepartment = empDepartment,
-                GivingYear = givingYear,
+                //GivingYear = givingYear,
                 EmployeeStatus = empStatus,
                 EmployeeDateCreated = empDateCreated,
             };
 
-            string sql = @"INSERT INTO Employee (cwid, employeefirstname, employeelastname, employeemi, streetaddress, employeecity, employeestate, employeezip, payroll, salary, pobox, poboxstate, poboxcity, givingyear, employeestatus, orgcode, employeedatecreated)
-                    VALUES                      (@CWID, @EmployeeFirstName, @EmployeeLastName, @EmployeeMI, @StreetAddress, @EmployeeCity, @EmployeeState, @EmployeeZip, @Payroll, @Salary, @POBox, @POBoxState, @POBoxCity, @GivingYear, @EmployeeStatus, @OrgCode, @EmployeeDateCreated)";
+            string sql = @"INSERT INTO Employee (cwid, employeefirstname, employeelastname, employeemi, streetaddress, employeecity, employeestate, employeezip, payroll, salary, pobox, poboxstate, poboxcity, employeestatus, orgcode, employeedatecreated)
+                    VALUES                      (@CWID, @EmployeeFirstName, @EmployeeLastName, @EmployeeMI, @StreetAddress, @EmployeeCity, @EmployeeState, @EmployeeZip, @Payroll, @Salary, @POBox, @POBoxState, @POBoxCity, @EmployeeStatus, @OrgCode, @EmployeeDateCreated)";
 
             return SQLDataAccess.SaveData(sql, data);
 
@@ -46,7 +46,7 @@ namespace DataLibrary.BusinessLogic
 
         public static List<EmployeeModel> LoadEmployees()
         {
-            string sql = @"SELECT cwid, employeefirstname, employeelastname, employeemi, streetaddress, employeecity, employeestate, employeezip, payroll, salary, pobox, poboxstate, poboxcity, givingyear, employeestatus, orgcode, employeedatecreated
+            string sql = @"SELECT cwid, employeefirstname, employeelastname, employeemi, streetaddress, employeecity, employeestate, employeezip, payroll, salary, pobox, poboxstate, poboxcity, employeestatus, orgcode, employeedatecreated
                             from dbo.Employee;";
 
             return SQLDataAccess.LoadData<EmployeeModel>(sql);

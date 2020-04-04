@@ -1,5 +1,5 @@
 ﻿CREATE TABLE [dbo].[Department] (
-    [orgcode]               VARCHAR (10) NOT NULL,
+    [orgcode]               INT          NOT NULL,
     [uwcoordinator3]        VARCHAR (50) NULL,
     [uwcoordinator2]        VARCHAR (50) NULL,
     [uwcoordinator1]        VARCHAR (50) NULL,
