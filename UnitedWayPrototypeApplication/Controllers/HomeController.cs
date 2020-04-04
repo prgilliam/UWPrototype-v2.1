@@ -164,8 +164,6 @@ namespace UnitedWayPrototypeApplication.Controllers
         }
 
 
-
-
         public ActionResult Contribution()
         {
             ViewBag.Message = "Contribution Overview";
