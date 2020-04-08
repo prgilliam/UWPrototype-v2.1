@@ -5,6 +5,10 @@ using System.Web;
 using System.Web.Mvc;
 using UnitedWayPrototypeApplication.Models;
 using DataLibrary;
+using System.Data.OleDb;
+using System.Data.SqlClient;
+using System.Configuration;
+using System.IO;
 //use comments on code
 
 namespace UnitedWayPrototypeApplication.Controllers
@@ -293,6 +297,69 @@ namespace UnitedWayPrototypeApplication.Controllers
             }
             return View();
         }
+
+
+        //controller for importing excel files
+        [HttpPost]
+        public ActionResult ExcelImport(ImportExcel importExcel)
+        {
+            if (ModelState.IsValid)
+            {
+                string filePath = Server.MapPath("~/Content/Upload/" + importExcel.file.FileName);
+                importExcel.file.SaveAs(filePath);
+
+                //connection string for file
+                string excelConnectionString = @"Provider='Microsoft.ACE.OLEDB.12.0';Data Source='" + filePath + "';Extended Properties='Excel 12.0 Xml;IMEX=1'";
+                OleDbConnection excelConnection = new OleDbConnection(excelConnectionString);
+
+                //Open connection, retrieve sheet name, close when done
+                excelConnection.Open();
+                string tableName = excelConnection.GetSchema("Tables").Rows[0]["TABLE_NAME"].ToString();
+                excelConnection.Close();
+
+                //Selecting headers needed, setting status to active, setting date of import as date created
+                OleDbCommand cmd = new OleDbCommand("SELECT CWID, LastName, FirstName, MI, StreetAddress1, City, State, Zip, Payroll, Salary, POBox, POBoxCity, POBoxState, Org, 1 as status, DATE() as empdatecreated  FROM [" + tableName + "]", excelConnection);
+
+                //opening connection
+                excelConnection.Open();
+
+                //reading data
+                OleDbDataReader dReader;
+                dReader = cmd.ExecuteReader();
+                SqlBulkCopy sqlBulk = new SqlBulkCopy(ConfigurationManager.ConnectionStrings["UnitedWay"].ConnectionString);
+
+                //where data should be stored
+                sqlBulk.DestinationTableName = "Employee";
+
+                //mappings
+                sqlBulk.ColumnMappings.Add("CWID", "cwid");
+                sqlBulk.ColumnMappings.Add("LastName", "employeelastname");
+                sqlBulk.ColumnMappings.Add("FirstName","employeefirstname");
+                sqlBulk.ColumnMappings.Add("MI", "employeemi");
+                sqlBulk.ColumnMappings.Add("StreetAddress1", "streetaddress");
+                sqlBulk.ColumnMappings.Add("City", "employeecity");
+                sqlBulk.ColumnMappings.Add("State", "employeestate");
+                sqlBulk.ColumnMappings.Add("Zip", "employeezip");
+                sqlBulk.ColumnMappings.Add("Payroll", "payroll");
+                sqlBulk.ColumnMappings.Add("Salary", "salary");
+                sqlBulk.ColumnMappings.Add("POBox", "pobox");
+                sqlBulk.ColumnMappings.Add("POBoxCity", "poboxcity");
+                sqlBulk.ColumnMappings.Add("status", "employeestatus");
+                sqlBulk.ColumnMappings.Add("empdatecreated", "employeedatecreated");
+                sqlBulk.ColumnMappings.Add("Org", "orgcode");
+                sqlBulk.ColumnMappings.Add("POBoxState", "poboxstate");
+
+                //write to and close connection
+                sqlBulk.WriteToServer(dReader);
+                excelConnection.Close();
+
+                ViewBag.Result = "Successfully Imported";
+
+            }
+
+            return View();
+        }
+
 
     }
 }
