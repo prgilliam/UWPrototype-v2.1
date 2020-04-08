@@ -12,3 +12,9 @@
 </body>
 </html>
 
+@model System.Web.Mvc.HandleErrorInfo
+<h1 class="text-danger">Error.@Model.Exception.Message</h1>
+<h2 class="text-danger">Error processing your request.</h2>
+
+@Html.ActionLink("Back", "Contribution", "Home");
+
