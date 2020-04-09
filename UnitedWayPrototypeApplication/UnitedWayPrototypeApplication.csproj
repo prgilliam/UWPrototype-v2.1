@@ -134,6 +134,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AgencyModel.cs" />
+    <Compile Include="Models\ContributionListModel.cs" />
     <Compile Include="Models\ContributionModel.cs" />
     <Compile Include="Models\DepartmentModel.cs" />
     <Compile Include="Models\EmployeeModel.cs" />
@@ -193,6 +194,7 @@
     <Content Include="Views\Home\SideMenu.cshtml" />
     <Content Include="Views\Home\ExcelImport.cshtml" />
     <Content Include="Views\Shared\ExistingCwidError.cshtml" />
+    <Content Include="Views\Home\ContributionList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

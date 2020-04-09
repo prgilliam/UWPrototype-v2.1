@@ -51,6 +51,7 @@
     <Compile Include="BusinessLogic\EmployeeProcessor.cs" />
     <Compile Include="DataAccess\SQLDataAccess.cs" />
     <Compile Include="Models\AgencyModel.cs" />
+    <Compile Include="Models\ContributionListModel.cs" />
     <Compile Include="Models\ContributionModel.cs" />
     <Compile Include="Models\DepartmentModel.cs" />
     <Compile Include="Models\EmployeeModel.cs" />

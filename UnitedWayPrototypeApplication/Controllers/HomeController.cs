@@ -198,6 +198,36 @@ namespace UnitedWayPrototypeApplication.Controllers
             return View(contributions);
         }
 
+        public ActionResult ContributionList()
+        {
+            ViewBag.Message = "Contribution List Overview";
+            //utilizing the SQL SELECT statements in ContributionProcessor to LOAD the contributions
+            var data = DataLibrary.BusinessLogic.ContributionProcessor.LoadContributionList();
+
+            //using the SQL SELECT statements in ContributionProcessor to LOAD the contributions to a list
+            List<ContributionListModel> contributionlist = new List<ContributionListModel>();
+            //create new row for each record
+            foreach (var row in data)
+            {
+                contributionlist.Add(new ContributionListModel
+                {
+                    ContributionID = row.ContributionID,
+                    CWID = row.CWID,
+                    EmployeeFirstName = row.EmployeeFirstName,
+                    EmployeeLastName = row.EmployeeLastName,
+                    Division = row.Division,
+                    DepartmentName = row.DepartmentName,
+                    AgencyName = row.AgencyName,
+                    UWType = row.UWType,
+                    UWMonthly = row.UWMonthly,
+                    UWMonths = row.UWMonths,
+                    uwcontributionamount = row.uwcontributionamount,
+                    UWYear = row.UWYear
+                });
+            }
+
+            return View(contributionlist);
+        }
         public ActionResult CreateContribution()
         {
             ViewBag.Message = "Enter new Contribution";
@@ -220,7 +250,7 @@ namespace UnitedWayPrototypeApplication.Controllers
                 {
                     DataLibrary.BusinessLogic.ContributionProcessor.CreateContribution(model.UWType, model.UWMonthly, model.UWMonths, model.UWYear,
                         model.CWID, model.AgencyID, model.CheckNumber, model.UWDateCreated, model.UWDateLastEdited);
-                    return RedirectToAction("Contribution");
+                    return RedirectToAction("ContributionList");
                 }
 
                 ModelState.Clear();

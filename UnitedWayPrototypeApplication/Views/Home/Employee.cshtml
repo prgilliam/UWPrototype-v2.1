@@ -4,7 +4,7 @@
     ViewBag.Title = "Employee Overview";
 }
 
-<h2>Employee Overview</h2>
+<h2>Employees</h2>
 
 <p>
     @Html.ActionLink("Create New Employee", "EmployeeCreate")
@@ -52,18 +52,6 @@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.OrgCode)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.EmployeeDepartment)
-        </th>
-        @*<th>
-            @Html.DisplayNameFor(model => model.GivingYear)
-        </th>*@
-        <th>
-            @Html.DisplayNameFor(model => model.EmployeeStatus)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.EmployeeDateCreated)
         </th>
         <th></th>
     </tr>
@@ -114,20 +102,7 @@
                 @Html.DisplayFor(modelItem => item.OrgCode)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.EmployeeDepartment)
-            </td>
-            @*<td>
-                @Html.DisplayFor(modelItem => item.GivingYear)
-            </td>*@
-            <td>
-                @Html.DisplayFor(modelItem => item.EmployeeStatus)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.EmployeeDateCreated)
-            </td>
-            <td>
                 @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
                 @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
             </td>
         </tr>
