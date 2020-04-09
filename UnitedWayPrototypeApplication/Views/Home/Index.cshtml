@@ -21,6 +21,15 @@
 @using (Html.BeginForm("ExcelImport", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.TextBoxFor(m => m.file, new { type = "file" })
-    <button id="submitButton" type="submit">Submit</button>
+    <button id="submitButton" type="submit">Submit Employee</button>
     @Html.ValidationMessageFor(model => model.file)
 }
+
+<h4>@ViewBag.Result</h4>
+@using (Html.BeginForm("DepartmentImport", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.TextBoxFor(m => m.file, new { type = "file" })
+    <button id="submitButton" type="submit">Submit Department</button>
+    @Html.ValidationMessageFor(model => model.file)
+}
+

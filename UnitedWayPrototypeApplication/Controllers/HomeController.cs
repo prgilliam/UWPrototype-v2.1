@@ -400,6 +400,59 @@ namespace UnitedWayPrototypeApplication.Controllers
             return View();
         }
 
+        [HttpPost]
+        public ActionResult DepartmentImport(ImportDepartment importDepartment)
+        {
+            if (ModelState.IsValid)
+            {
+                string path = Server.MapPath("~/Content/Upload/" + importDepartment.file.FileName);
+                importDepartment.file.SaveAs(path);
+
+                //connection string for file
+                string excelConnectionString = @"Provider='Microsoft.ACE.OLEDB.12.0';Data Source='" + path + "';Extended Properties='Excel 12.0 Xml;IMEX=1'";
+                OleDbConnection excelConnection = new OleDbConnection(excelConnectionString);
+
+                //Open connection, retrieve sheet name, close when done
+                excelConnection.Open();
+                string tableName = excelConnection.GetSchema("Tables").Rows[0]["TABLE_NAME"].ToString();
+                excelConnection.Close();
+
+                //Selecting headers needed, setting status to active, setting date of import as date created
+                OleDbCommand cmd = new OleDbCommand("SELECT Org, Division, Department, UWCoordinator3, UWCoordinator2, UWCoordinator1, 1 as status, DATE() as deptdatecreated  FROM [" + tableName + "]", excelConnection);
+
+                //opening connection
+                excelConnection.Open();
+
+                //reading data
+                OleDbDataReader dReader;
+                dReader = cmd.ExecuteReader();
+                SqlBulkCopy sqlBulk = new SqlBulkCopy(ConfigurationManager.ConnectionStrings["UnitedWay"].ConnectionString);
+
+                //where data should be stored
+                sqlBulk.DestinationTableName = "Department";
+
+                //mappings
+                sqlBulk.ColumnMappings.Add("Org", "orgcode");
+                sqlBulk.ColumnMappings.Add("UWCoordinator3", "uwcoordinator3");
+                sqlBulk.ColumnMappings.Add("UWCoordinator2", "uwcoordinator2");
+                sqlBulk.ColumnMappings.Add("UWCoordinator1", "uwcoordinator1");
+                sqlBulk.ColumnMappings.Add("Division", "division");
+                sqlBulk.ColumnMappings.Add("Department", "departmentname");
+                sqlBulk.ColumnMappings.Add("status", "departmentstatus");
+                sqlBulk.ColumnMappings.Add("deptdatecreated", "departmentdatecreated");
+
+                //write to and close connection
+                sqlBulk.WriteToServer(dReader);
+                excelConnection.Close();
+
+                ViewBag.Result = "Successfully Imported";
+
+            }
+
+            return View();
+        }
+
+
 
     }
 }

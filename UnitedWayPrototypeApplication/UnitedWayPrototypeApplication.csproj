@@ -138,6 +138,7 @@
     <Compile Include="Models\ContributionModel.cs" />
     <Compile Include="Models\DepartmentModel.cs" />
     <Compile Include="Models\EmployeeModel.cs" />
+    <Compile Include="Models\ImportDepartment.cs" />
     <Compile Include="Models\ImportExcel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -195,6 +196,7 @@
     <Content Include="Views\Home\ExcelImport.cshtml" />
     <Content Include="Views\Shared\ExistingCwidError.cshtml" />
     <Content Include="Views\Home\ContributionList.cshtml" />
+    <Content Include="Views\Home\DepartmentImport.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
