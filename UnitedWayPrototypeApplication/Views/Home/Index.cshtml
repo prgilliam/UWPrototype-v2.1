@@ -1,4 +1,5 @@
-﻿
+﻿<!DOCTYPE HTML PUBLIC "~//W3C//DTD HTML 4.01//EN" lang ="EN">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 @model UnitedWayPrototypeApplication.Models.ImportExcel
 
 @{
@@ -7,8 +8,10 @@
 
 <div class="jumbotron">
     <h1>United Way // University of Alabama</h1>
+    <img class="center-block img-responsive" src="..\United-way-of-west-alabama.png" width="130" height="130" alt="United Way of West Alabama">
+    <p> </p>
     <p class="lead">This application was created to process contributions made by those related to the University of Alabama in support of the United Way of West Alabama Campaign. Roll Tide!</p>
-    <p><a href="http://communityaffairs.ua.edu/united-way/" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+    <p><a href="http://communityaffairs.ua.edu/united-way/" class="btn btn-crimson btn-lg">Learn more &raquo;</a></p>
 </div>
 
 <div class="row">
@@ -21,7 +24,7 @@
 @using (Html.BeginForm("ExcelImport", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.TextBoxFor(m => m.file, new { type = "file" })
-    <button id="submitButton" type="submit">Submit Employee</button>
+    <button id="submitButton" type="submit" class="btn btn-crimson btn-rounded">Submit Employee</button>
     @Html.ValidationMessageFor(model => model.file)
 }
 
@@ -29,7 +32,7 @@
 @using (Html.BeginForm("DepartmentImport", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.TextBoxFor(m => m.file, new { type = "file" })
-    <button id="submitButton" type="submit">Submit Department</button>
+    <button id="submitButton" type="submit" class="btn btn-crimson btn-rounded">Submit Department</button>
     @Html.ValidationMessageFor(model => model.file)
 }
 

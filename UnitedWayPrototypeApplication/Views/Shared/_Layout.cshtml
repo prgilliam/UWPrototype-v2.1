@@ -1,41 +1,74 @@
 ﻿<!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewBag.Title - United Way </title>
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
-    
-  
-  
+
+    @Styles.Render("~/Assets/css/bootstrap.css")
+    @Styles.Render("~/Assets/css/custom.css")
+    @Styles.Render("~/Assets/css/font-awesome.css")
+    @Styles.Render("~/Assets/css/style.min.css")
+    <!-- UA logos - Financial Affairs departments -->
+    <link href="assets/css/ua-logos/fa-depts.min.css" rel="stylesheet" />
+    <link rel="apple-touch-icon" sizes="57x57" href="~/Assets/img/favicons/apple-touch-icon-57x57.png" />
+    <link rel="apple-touch-icon" sizes="60x60" href="~/Assets/img/favicons/apple-touch-icon-60x60.png" />
+    <link rel="apple-touch-icon" sizes="72x72" href="~/Assets/img/favicons/apple-touch-icon-72x72.png" />
+    <link rel="apple-touch-icon" sizes="76x76" href="~/Assets/img/favicons/apple-touch-icon-76x76.png" />
+    <link rel="apple-touch-icon" sizes="114x114" href="~/Assets/img/favicons/apple-touch-icon-114x114.png" />
+    <link rel="apple-touch-icon" sizes="120x120" href="~/Assets/img/favicons/apple-touch-icon-120x120.png" />
+    <link rel="apple-touch-icon" sizes="144x144" href="~/Assets/img/favicons/apple-touch-icon-144x144.png" />
+    <link rel="apple-touch-icon" sizes="152x152" href="~/Assets/img/favicons/apple-touch-icon-152x152.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="~/Assets/img/favicons/apple-touch-icon-180x180.png" />
+    <link rel="icon" type="image/png" href="~/Assets/img/favicons/favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="~/Assets/img/favicons/android-chrome-192x192.png" sizes="192x192" />
+    <link rel="icon" type="image/png" href="~/Assets/img/favicons/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/png" href="~/Assets/img/favicons/favicon-16x16.png" sizes="16x16" />
+    <link rel="manifest" href="~/Assets/img/favicons/manifest.json" />
+    <link rel="mask-icon" href="~/Assets/img/favicons/safari-pinned-tab.svg" color="#990000" />
+    <link rel="shortcut icon" href="~/Assets/img/favicons/favicon.ico" />
+
+    <meta name="msapplication-TileColor" content="#990000" />
+    <meta name="msapplication-TileImage" content="~/Assets/img/favicons/mstile-144x144.png" />
+    <meta name="msapplication-config" content="~/Assets/img/favicons/browserconfig.xml" />
+    <meta name="theme-color" content="#ffffff" />
+
 </head>
 <body>
-    
-    <div class="navbar navbar-inverse navbar-fixed-top">
-       
+    <header>
+        <div class="sticky-header-container">
+            <div id="sticky-header" class="header-main header-primary navbar mega-menu disable-hover affix-top" data-spy="affix" data-offset-top="50">
+                <div class="container">
+                    <div class="navbar-container">
+                        <div class="navbar-header">
+                            <a class="navbar-brand ua-logo ua-logo-fa-dept-finance" href="http://finance.ua.edu/" title="The University of Alabama Office of Finance" rel="home">
+                                <img class="ua-square-logo pull-left img-responsive" src="~/Assets/img/ua-square-logo.png" width="65" height="65" alt="The University of Alabama">
+                                <span class="sr-only">The University of Alabama Office of Finance</span>
+                            </a>
+                            <a href="#" class="btn btn-default nav-toggle visible-xs visible-sm">
+                                <span class="sr-only">Toggle navigation</span>
+                                <i class="fa fa-bars"></i>
+                            </a>
+                        </div> <!-- .navbar-header -->
+                        <nav class="navbar-right">
+                            <ul class="nav navbar-nav main-nav">
+                                <li> @Html.ActionLink("Contribution", "ContributionList", "Home")</li>
+                                <li> @Html.ActionLink("Employee", "Employee", "Home")</li>
+                                <li> @Html.ActionLink("Department", "Department", "Home")</li>
+                                <li> @Html.ActionLink("Agency", "Agency", "Home")</li>
+                            </ul>
+                        </nav>
+                    </div> <!-- .navbar-container -->
+                </div> <!-- .container -->
+            </div> <!-- .header-main -->
+        </div> <!-- .sticky-header-container -->
+    </header>
+    <div id="MainHeaderDiv" class="breadcrumb-wrapper">
         <div class="container">
-            <img src="~/United way.png" style=" padding: 2px 2px; float:right;width:100px; height:65px;">
-            <img src="~/ua-square-logo.png" style=" padding: 2px 2px;float: left;width:65px; height:65px;">
-
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-
-                @Html.ActionLink("UA United Way Campaign ", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-
-                    <li> @Html.ActionLink("Contribution", "ContributionList", "Home")</li>
-                    <li> @Html.ActionLink("Employee", "Employee", "Home")</li>
-                    <li> @Html.ActionLink("Department", "Department", "Home")</li>
-                    <li> @Html.ActionLink("Agency", "Agency", "Home")</li>
-                </ul>
+            <div class="row">
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    @Html.ActionLink("UA United Way Campaign ", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                </div>
             </div>
         </div>
     </div>
@@ -48,8 +81,21 @@
         </footer>
     </div>
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js")
+    @Scripts.Render("~/Assets/lib/jquery/dist/jquery.js")
+    @Scripts.Render("~/Assets/js/vendors/bootstrap.js")
+    @Scripts.Render("~/Assets/js/vendors/bootstrap.min.js")
+    @Scripts.Render("~/Assets/js/scripts.min.js")
+    @Scripts.Render("~/Assets/js/vendors/bootstrap.min.js")
+    @Scripts.Render("~/Assets/js/vendors/owl.carousel.min.js")
+    @Scripts.Render("~/Assets/js/vendors/chart.min.js")
+    @Scripts.Render("~/Assets/js/vendors/gmaps.min.js")
+    @Scripts.Render("~/Assets/js/vendors/magnific-popup.min.js")
+    @Scripts.Render("~/Assets/js/vendors/masonry.min.js")
+    @Scripts.Render("~/Assets/js/vendors/imagesLoaded.min.js")
+    @Scripts.Render("~/Assets/js/vendors/dataTables.min.js")
+    @Scripts.Render("~/Assets/js/jquery.unobtrusive-ajax.js")
+    @Scripts.Render("~/Assets/js/jquery.unobtrusive-ajax.min.js")
     @RenderSection("scripts", required: false)
 </body>
 </html>

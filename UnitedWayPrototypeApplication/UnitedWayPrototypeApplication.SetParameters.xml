@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <setParameter name="IIS Web Application Name" value="UnitedWay" />
+  <setParameter name="UnitedWay-Web.config Connection String" value="Data Source=SQL16TMIS;Initial Catalog=UnitedWay;User ID=UnitedWayAppAccount;Password=@l@bama16$!Rx.2-3;Connect Timeout=60;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False" />
+</parameters>

@@ -3,96 +3,99 @@
 @{
     ViewBag.Title = "ContributionList";
 }
+<div class="container">
 
-<h2>Contributions</h2>
+    <h2>Contributions</h2>
 
-<p>
-    @Html.ActionLink("Create New Contribution", "CreateContribution")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.ActionLink("Contribution ID", "SortContributionList", "Home", new { name = "ContributionID" }, null)
-        </th>
-        <th>
-            @Html.ActionLink("CWID", "SortContributionList", "Home", new { name = "CWID" }, null)
-        </th>
-        <th>
-            @Html.ActionLink("First Name", "SortContributionList", "Home", new { name = "EmployeeFirstName" }, null)
-        </th>
-        <th>
-            @Html.ActionLink("Last Name", "SortContributionList", "Home", new { name = "EmployeeLastName" }, null)
-        </th>
-        <th>
-            @Html.ActionLink("Division", "SortContributionList", "Home", new { name = "Division" }, null)
-        </th>
-        <th>
-            @Html.ActionLink("Department", "SortContributionList", "Home", new { name = "Department" }, null)
-        </th>
-        <th>
-            @Html.ActionLink("Payment Type", "SortContributionList", "Home", new { name = "UWType" }, null)
-        </th>
-        <th>
-            @Html.ActionLink("Monthly Amount", "SortContributionList", "Home", new { name = "UWMonthly" }, null)
-        </th>
-        <th>
-            @Html.ActionLink("Months", "SortContributionList", "Home", new { name = "UWMonths" }, null)
-        </th>
-        <th>
-            @Html.ActionLink("Total Contribution", "SortContributionList", "Home", new { name = "uwcontributionamount" }, null)
-        </th>
-        <th>
-            @Html.ActionLink("Agency Name", "SortContributionList", "Home", new { name = "AgencyName" }, null)
-        </th>
-        <th>
-            @Html.ActionLink("Giving Year", "SortContributionList", "Home", new { name = "UWYear" }, null)
-        </th>
-        <th></th>
-    </tr>
+    <p>
+        @Html.ActionLink("Create New Contribution", "CreateContribution")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.ActionLink("Contribution ID", "SortContributionList", "Home", new { name = "ContributionID" }, null)
+            </th>
+            <th>
+                @Html.ActionLink("CWID", "SortContributionList", "Home", new { name = "CWID" }, null)
+            </th>
+            <th>
+                @Html.ActionLink("First Name", "SortContributionList", "Home", new { name = "EmployeeFirstName" }, null)
+            </th>
+            <th>
+                @Html.ActionLink("Last Name", "SortContributionList", "Home", new { name = "EmployeeLastName" }, null)
+            </th>
+            <th>
+                @Html.ActionLink("Division", "SortContributionList", "Home", new { name = "Division" }, null)
+            </th>
+            <th>
+                @Html.ActionLink("Department", "SortContributionList", "Home", new { name = "Department" }, null)
+            </th>
+            <th>
+                @Html.ActionLink("Payment Type", "SortContributionList", "Home", new { name = "UWType" }, null)
+            </th>
+            <th>
+                @Html.ActionLink("Monthly Amount", "SortContributionList", "Home", new { name = "UWMonthly" }, null)
+            </th>
+            <th>
+                @Html.ActionLink("Months", "SortContributionList", "Home", new { name = "UWMonths" }, null)
+            </th>
+            <th>
+                @Html.ActionLink("Total Contribution", "SortContributionList", "Home", new { name = "uwcontributionamount" }, null)
+            </th>
+            <th>
+                @Html.ActionLink("Agency Name", "SortContributionList", "Home", new { name = "AgencyName" }, null)
+            </th>
+            <th>
+                @Html.ActionLink("Giving Year", "SortContributionList", "Home", new { name = "UWYear" }, null)
+            </th>
+            <th></th>
+        </tr>
 
-@foreach (var item in Model) {
-<tr>
-    <td>
-        @Html.DisplayFor(modelItem => item.ContributionID)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.CWID)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.EmployeeFirstName)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.EmployeeLastName)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Division)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.DepartmentName)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.UWType)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.UWMonthly)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.UWMonths)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.uwcontributionamount)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.AgencyName)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.UWYear)
-    </td>
-    <td>
-        @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-        @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-    </td>
-</tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ContributionID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CWID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EmployeeFirstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EmployeeLastName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Division)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DepartmentName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UWType)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UWMonthly)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UWMonths)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.uwcontributionamount)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AgencyName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UWYear)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                </td>
+            </tr>
+        }
 
-</table>
+    </table>
+</div> 
