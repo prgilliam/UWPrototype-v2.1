@@ -1,9 +1,5 @@
 ﻿@model IEnumerable<UnitedWayPrototypeApplication.Models.ContributionListModel>
 
-@{
-    ViewBag.Title = "ContributionList";
-}
-
 <h2>Contributions</h2>
 
 <p>
@@ -12,40 +8,40 @@
 <table class="table">
     <tr>
         <th>
-            @Html.ActionLink("Contribution ID", "SortContributionList", "Home", new { name = "ContributionID" }, null)
+            @Html.ActionLink("Contribution ID", "ContributionList")
         </th>
         <th>
-            @Html.ActionLink("CWID", "SortContributionList", "Home", new { name = "CWID" }, null)
+            @Html.ActionLink("CWID", "ContributionList")
         </th>
         <th>
-            @Html.ActionLink("First Name", "SortContributionList", "Home", new { name = "EmployeeFirstName" }, null)
+            @Html.ActionLink("First Name", "ContributionList")
         </th>
         <th>
-            @Html.ActionLink("Last Name", "SortContributionList", "Home", new { name = "EmployeeLastName" }, null)
+            @Html.ActionLink("Last Name", "ContributionList")
         </th>
         <th>
-            @Html.ActionLink("Division", "SortContributionList", "Home", new { name = "Division" }, null)
+            @Html.ActionLink("Division", "ContributionList")
         </th>
         <th>
-            @Html.ActionLink("Department", "SortContributionList", "Home", new { name = "Department" }, null)
+            @Html.ActionLink("Department", "ContributionList")
         </th>
         <th>
-            @Html.ActionLink("Payment Type", "SortContributionList", "Home", new { name = "UWType" }, null)
+            @Html.ActionLink("Payment Type", "ContributionList")
         </th>
         <th>
-            @Html.ActionLink("Monthly Amount", "SortContributionList", "Home", new { name = "UWMonthly" }, null)
+            @Html.ActionLink("Monthly Amount", "ContributionList")
         </th>
         <th>
-            @Html.ActionLink("Months", "SortContributionList", "Home", new { name = "UWMonths" }, null)
+            @Html.ActionLink("Months", "ContributionList")
         </th>
         <th>
-            @Html.ActionLink("Total Contribution", "SortContributionList", "Home", new { name = "uwcontributionamount" }, null)
+            @Html.ActionLink("Total Contribution", "ContributionList")
         </th>
         <th>
-            @Html.ActionLink("Agency Name", "SortContributionList", "Home", new { name = "AgencyName" }, null)
+            @Html.ActionLink("Agency Name", "ContributionList")
         </th>
         <th>
-            @Html.ActionLink("Giving Year", "SortContributionList", "Home", new { name = "UWYear" }, null)
+            @Html.ActionLink("Giving Year", "ContributionList")
         </th>
         <th></th>
     </tr>

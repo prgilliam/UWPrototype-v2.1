@@ -197,6 +197,8 @@
     <Content Include="Views\Shared\ExistingCwidError.cshtml" />
     <Content Include="Views\Home\ContributionList.cshtml" />
     <Content Include="Views\Home\DepartmentImport.cshtml" />
+    <Content Include="Views\Home\SortContributionList.cshtml" />
+    <Content Include="Views\Home\SortDescendingContributionList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -228,9 +228,12 @@ namespace UnitedWayPrototypeApplication.Controllers
 
             return View(contributionlist);
         }
+
+
         public ActionResult CreateContribution()
         {
             ViewBag.Message = "Enter new Contribution";
+
 
             return View();
         }
@@ -261,6 +264,146 @@ namespace UnitedWayPrototypeApplication.Controllers
                 return View("ExistingCwidError", new HandleErrorInfo(CWID, "ContributionModel", "CreateContribution"));
             }
         }
+
+        public ActionResult SortContributionList(string name)
+        {
+            ViewBag.Message = "Sort Contribution List";
+            //utilizing the SQL SELECT statements in ContributionProcessor to LOAD the contributions
+            var data = DataLibrary.BusinessLogic.ContributionProcessor.LoadContributionList();
+            //using the SQL SELECT statements in ContributionProcessor to LOAD the contributions to a list
+            List<ContributionListModel> contributiondisplay = new List<ContributionListModel>();
+            //create new row for each record
+            foreach (var row in data)
+            {
+                contributiondisplay.Add(new ContributionListModel
+                {
+                    ContributionID = row.ContributionID,
+                    CWID = row.CWID,
+                    EmployeeFirstName = row.EmployeeFirstName,
+                    EmployeeLastName = row.EmployeeLastName,
+                    Division = row.Division,
+                    DepartmentName = row.DepartmentName,
+                    AgencyName = row.AgencyName,
+                    UWType = row.UWType,
+                    UWMonthly = row.UWMonthly,
+                    UWMonths = row.UWMonths,
+                    uwcontributionamount = row.uwcontributionamount,
+                    UWYear = row.UWYear
+                });
+            }
+            switch (name)
+            {
+                case "ContributionID":
+                    contributiondisplay = contributiondisplay.OrderBy(x => x.ContributionID).ToList();
+                    break;
+                case "CWID":
+                    contributiondisplay = contributiondisplay.OrderBy(x => x.CWID).ToList();
+                    break;
+                case "EmployeeFirstName":
+                    contributiondisplay = contributiondisplay.OrderBy(x => x.EmployeeFirstName).ToList();
+                    break;
+                case "EmployeeLastName":
+                    contributiondisplay = contributiondisplay.OrderBy(x => x.EmployeeLastName).ToList();
+                    break;
+                case "Division":
+                    contributiondisplay = contributiondisplay.OrderBy(x => x.Division).ToList();
+                    break;
+                case "Department":
+                    contributiondisplay = contributiondisplay.OrderBy(x => x.DepartmentName).ToList();
+                    break;
+                case "UWType":
+                    contributiondisplay = contributiondisplay.OrderBy(x => x.UWType).ToList();
+                    break;
+                case "UWMonthly":
+                    contributiondisplay = contributiondisplay.OrderBy(x => x.UWMonthly).ToList();
+                    break;
+                case "UWMonths":
+                    contributiondisplay = contributiondisplay.OrderBy(x => x.UWMonths).ToList();
+                    break;
+                case "uwcontributionamount":
+                    contributiondisplay = contributiondisplay.OrderBy(x => x.uwcontributionamount).ToList();
+                    break;
+                case "AgencyName":
+                    contributiondisplay = contributiondisplay.OrderBy(x => x.AgencyName).ToList();
+                    break;
+                case "UWyear":
+                    contributiondisplay = contributiondisplay.OrderBy(x => x.UWYear).ToList();
+                    break;
+            }
+
+
+            return View(contributiondisplay);
+        }
+
+        public ActionResult SortDescendingContributionList(string name)
+        {
+            ViewBag.Message = "Sort Descending Contribution List";
+            //utilizing the SQL SELECT statements in ContributionProcessor to LOAD the contributions
+            var data = DataLibrary.BusinessLogic.ContributionProcessor.LoadContributionList();
+            //using the SQL SELECT statements in ContributionProcessor to LOAD the contributions to a list
+            List<ContributionListModel> contributiondisplay = new List<ContributionListModel>();
+            //create new row for each record
+            foreach (var row in data)
+            {
+                contributiondisplay.Add(new ContributionListModel
+                {
+                    ContributionID = row.ContributionID,
+                    CWID = row.CWID,
+                    EmployeeFirstName = row.EmployeeFirstName,
+                    EmployeeLastName = row.EmployeeLastName,
+                    Division = row.Division,
+                    DepartmentName = row.DepartmentName,
+                    AgencyName = row.AgencyName,
+                    UWType = row.UWType,
+                    UWMonthly = row.UWMonthly,
+                    UWMonths = row.UWMonths,
+                    uwcontributionamount = row.uwcontributionamount,
+                    UWYear = row.UWYear
+                });
+            }
+
+            switch (name)
+            {
+                case "ContributionID":
+                    contributiondisplay = contributiondisplay.OrderByDescending(x => x.ContributionID).ToList();
+                    break;
+                case "CWID":
+                    contributiondisplay = contributiondisplay.OrderByDescending(x => x.CWID).ToList();
+                    break;
+                case "EmployeeFirstName":
+                    contributiondisplay = contributiondisplay.OrderByDescending(x => x.EmployeeFirstName).ToList();
+                    break;
+                case "EmployeeLastName":
+                    contributiondisplay = contributiondisplay.OrderByDescending(x => x.EmployeeLastName).ToList();
+                    break;
+                case "Division":
+                    contributiondisplay = contributiondisplay.OrderByDescending(x => x.Division).ToList();
+                    break;
+                case "Department":
+                    contributiondisplay = contributiondisplay.OrderByDescending(x => x.DepartmentName).ToList();
+                    break;
+                case "UWType":
+                    contributiondisplay = contributiondisplay.OrderByDescending(x => x.UWType).ToList();
+                    break;
+                case "UWMonthly":
+                    contributiondisplay = contributiondisplay.OrderByDescending(x => x.UWMonthly).ToList();
+                    break;
+                case "UWMonths":
+                    contributiondisplay = contributiondisplay.OrderByDescending(x => x.UWMonths).ToList();
+                    break;
+                case "uwcontributionamount":
+                    contributiondisplay = contributiondisplay.OrderByDescending(x => x.uwcontributionamount).ToList();
+                    break;
+                case "AgencyName":
+                    contributiondisplay = contributiondisplay.OrderByDescending(x => x.AgencyName).ToList();
+                    break;
+                case "UWyear":
+                    contributiondisplay = contributiondisplay.OrderByDescending(x => x.UWYear).ToList();
+                    break;
+            }
+            return View(contributiondisplay);
+        }
+
 
         //department overview, shows all departments in a list
         public ActionResult Department()
